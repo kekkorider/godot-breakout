@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://emtg7mrhcpv8"]
+
+[ext_resource type="PackedScene" uid="uid://dyo4y2u3vfh2y" path="res://player.tscn" id="1_cfp6m"]
+[ext_resource type="Script" path="res://game.gd" id="1_vpkrs"]
+[ext_resource type="PackedScene" uid="uid://dgqstgpvm1g0f" path="res://block.tscn" id="2_18kry"]
+[ext_resource type="PackedScene" uid="uid://4axuna4psbuk" path="res://ball.tscn" id="3_x2nsd"]
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_vpkrs")
+
+[node name="Player" parent="." instance=ExtResource("1_cfp6m")]
+position = Vector2(307, 1080)
+speed = 300
+
+[node name="Ball" parent="." instance=ExtResource("3_x2nsd")]
+position = Vector2(307, 1035)
+
+[node name="Block" parent="." instance=ExtResource("2_18kry")]
+position = Vector2(322, 239)
+
+[connection signal="game_start" from="." to="Ball" method="_on_game_game_start"]

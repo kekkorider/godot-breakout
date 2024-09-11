@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://4axuna4psbuk"]
+
+[ext_resource type="Script" path="res://ball.gd" id="1_kqx5y"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_7joxv"]
+size = Vector3(30, 30, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xeyrl"]
+size = Vector2(30, 30)
+
+[node name="Ball" type="Area2D"]
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("1_kqx5y")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+mesh = SubResource("BoxMesh_7joxv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_xeyrl")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
